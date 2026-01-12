@@ -1,12 +1,10 @@
-import type { Config } from "tailwindcss";
-
 export default {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx,jsx}",
-    "./components/**/*.{ts,tsx,jsx}",
-    "./app/**/*.{ts,tsx,jsx}",
-    "./src/**/*.{ts,tsx,jsx}",
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
@@ -101,4 +99,4 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};

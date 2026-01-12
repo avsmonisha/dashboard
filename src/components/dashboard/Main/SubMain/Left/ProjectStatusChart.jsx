@@ -6,18 +6,19 @@ import { projectStatusData } from "@/data/dashboardData";
 const ProjectStatusChart = () => {
   const [isDark, setIsDark] = useState(false);
 
-  // Detect Tailwind dark mode reliably
+  // Detect Tailwind dark mode
   useEffect(() => {
     const updateDarkMode = () => {
       setIsDark(document.documentElement.classList.contains("dark"));
     };
 
-    // Initial check
     updateDarkMode();
 
-    // Observe class changes on <html>
-    const observer = new MutationObserver(() => updateDarkMode());
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    const observer = new MutationObserver(updateDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -31,6 +32,7 @@ const ProjectStatusChart = () => {
       </CardHeader>
 
       <CardContent>
+        {/* Chart */}
         <div className="h-[200px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={projectStatusData} barCategoryGap="45%">
@@ -38,22 +40,29 @@ const ProjectStatusChart = () => {
                 dataKey="value"
                 barSize={36}
                 radius={[6, 6, 0, 0]}
-                background={{ fill: isDark ? "#1E293B" : "#F1F5F9" }}
+                background={{
+                  fill: isDark ? "#1E293B" : "#F1F5F9",
+                }}
                 isAnimationActive={false}
               >
-                {projectStatusData.map((entry, i) => (
-                  <Cell key={i} fill={entry.color} />
+                {projectStatusData.map((entry, index) => (
+                  <Cell key={index} fill={entry.color} />
                 ))}
               </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
 
+        {/* Labels & Values */}
         <div className="grid grid-cols-4 mt-6">
           {projectStatusData.map((item) => (
             <div key={item.name} className="text-center">
-              <p className="text-xs text-[#94A3B8]">{item.name}</p>
-              <p className="text-sm font-[15px] text-white">{item.value}</p>
+              <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
+                {item.name}
+              </p>
+              <p className="text-sm font-[14px] text-[#667084] dark:text-white">
+                {item.value}
+              </p>
             </div>
           ))}
         </div>
@@ -63,3 +72,4 @@ const ProjectStatusChart = () => {
 };
 
 export default ProjectStatusChart;
+
