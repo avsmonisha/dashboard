@@ -25,12 +25,13 @@ const Dashboard = () => {
           <div
             className="
               mt-6
+              ml-8
               grid
               grid-cols-1
               sm:grid-cols-2
               lg:grid-cols-4
-              gap-x-4
-              gap-y-2
+              gap-x-3
+              gap-y-9
             "
           >
             {statsCards.map((card) => (
@@ -39,7 +40,7 @@ const Dashboard = () => {
           </div>
 
           {/* CHART SECTION */}
-          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="mt-6 ml-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <ProjectStatusChart />
             <FeatureMenu />
           </div>

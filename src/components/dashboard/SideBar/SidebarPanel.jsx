@@ -16,7 +16,6 @@ const SidebarPanel = () => {
     >
       {/* LOGO */}
       <div className="flex items-center h-[50px] pl-[28.51px] pt-[6px] gap-[10px] shrink-0">
-        {/* BLUE BOX */}
         <div
           className="
             w-[37.64px] h-[39px]
@@ -31,18 +30,12 @@ const SidebarPanel = () => {
           </span>
         </div>
 
-        {/* NEXUS */}
-        <span
-          className="
-            font-poppins font-semibold text-[20px]
-            text-slate-900 dark:text-[#F1F5F9]
-          "
-        >
+        <span className="font-poppins font-semibold text-[20px] text-slate-900 dark:text-[#F1F5F9]">
           NEXUS
         </span>
       </div>
 
-      {/* NAV (scrollable) */}
+      {/* NAVIGATION */}
       <nav className="flex-1 overflow-y-auto mt-6 px-3 pb-6">
         <ul className="space-y-1">
           {navigationItems.map((item) => {
@@ -54,19 +47,43 @@ const SidebarPanel = () => {
                 <Link
                   to={item.path}
                   className={`
-                    flex items-center gap-3 px-4 py-3 rounded-lg
-                    text-slate-600 dark:text-[#CBD5E1]
-                    hover:bg-slate-100 dark:hover:bg-[#1E293B]
+                    group
+                    flex items-center gap-3
+                    px-4 py-3
+                    rounded-lg
                     transition-colors
                     ${
                       isActive
-                        ? "bg-slate-100 text-slate-900 dark:bg-[#1E293B] dark:text-white"
-                        : ""
+                        ? "bg-slate-100 dark:bg-[#1E293B]"
+                        : "hover:bg-slate-100 dark:hover:bg-[#1E293B]"
                     }
                   `}
                 >
-                  <Icon className="w-5 h-5 shrink-0" />
-                  <span className="text-sm font-medium">
+                  {/* ICON — FIGMA MATCHED */}
+                  <Icon
+                    size={23}
+                    strokeWidth={2.5}
+                    className={`
+                      shrink-0
+                      ${
+                        isActive
+                          ? "text-slate-900 dark:text-white"
+                          : "text-[#64748B] dark:text-[#94A3B8] group-hover:text-slate-900 dark:group-hover:text-white"
+                      }
+                    `}
+                  />
+
+                  {/* LABEL */}
+                  <span
+                    className={`
+                      text-sm font-medium
+                      ${
+                        isActive
+                          ? "text-slate-900 dark:text-white"
+                          : "text-[#64748B] dark:text-[#CBD5E1]"
+                      }
+                    `}
+                  >
                     {item.label}
                   </span>
                 </Link>

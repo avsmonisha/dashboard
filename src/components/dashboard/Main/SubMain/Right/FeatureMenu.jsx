@@ -23,7 +23,7 @@ const FeatureMenu = ({ data = productivityData }) => {
   return (
     <div
       className="
-        w-[517px]
+        w-[530px]
         h-[361px]
         rounded-[12px]
 
@@ -31,25 +31,25 @@ const FeatureMenu = ({ data = productivityData }) => {
         border border-black/5 dark:border-white/10
 
         shadow-[0px_4px_4px_5px_rgba(0,0,0,0.25)]
-
+        
         p-6
         flex flex-col
       "
     >
       {/* HEADER */}
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-[14px] font-semibold text-[#020617] dark:text-[#F1F5F9]">
+        <h3 className="text-[14px] mt-3 font-semibold text-[#020617] dark:text-[#F1F5F9]">
           Team Productivity
         </h3>
 
         <div className="flex items-center gap-1.5 text-[11px] text-[#64748B] dark:text-[#94A3B8]">
-          <CalendarDays className="w-4 h-4" />
+          
           <span>Last 30 Days</span>
         </div>
       </div>
 
       {/* CHART */}
-      <div className="flex-1">
+      <div className="flex-1 -ml-9 -mb-1 mt-2">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}

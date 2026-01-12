@@ -1,68 +1,72 @@
-import { 
-  LayoutDashboard, 
-  FolderKanban, 
-  CheckSquare, 
-  MessageSquare, 
-  Calendar, 
-  FileText, 
-  Building2, 
-  Bell, 
-  Users, 
-  Wrench, 
-  BarChart3, 
-  Link2, 
-  Settings
+import {
+  LayoutDashboard,
+  Folder,
+  CheckSquare,
+  MessageSquare,
+  NotebookText,   // ✅ Meeting
+  FileText,
+  AlertTriangle,
+  Users,
+  Clock,
+  Umbrella,
+  BarChart3,
+  Link,
+  Settings,
 } from "lucide-react";
 
 export const navigationItems = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/" },
-  { id: "projects", label: "Projects", icon: FolderKanban, path: "/projects" },
+  { id: "projects", label: "Projects", icon: Folder, path: "/projects" },
   { id: "tasks", label: "Tasks", icon: CheckSquare, path: "/tasks" },
   { id: "chat", label: "Chat", icon: MessageSquare, path: "/chat" },
-  { id: "meetings", label: "Meetings", icon: Calendar, path: "/meetings" },
+
+  // ✅ FIXED
+  { id: "meetings", label: "Meetings", icon: NotebookText, path: "/meetings" },
+
   { id: "documents", label: "Documents", icon: FileText, path: "/documents" },
-  { id: "companies", label: "Companies", icon: Building2, path: "/companies" },
-  { id: "notice", label: "Notice", icon: Bell, path: "/notice" },
-  { id: "attendance", label: "Attendance", icon: Users, path: "/attendance" },
-  { id: "leave", label: "Leave", icon: Wrench, path: "/leave" },
+  { id: "complaints", label: "Complaints", icon: AlertTriangle, path: "/complaints" },
+  { id: "notice", label: "Notice", icon: Users, path: "/notice" },
+  { id: "attendance", label: "Attendance", icon: Clock, path: "/attendance" },
+  { id: "leave", label: "Leave", icon: Umbrella, path: "/leave" },
   { id: "performance", label: "Performance", icon: BarChart3, path: "/performance" },
-  { id: "integrations", label: "Integrations", icon: Link2, path: "/integrations" },
+  { id: "integrations", label: "Integrations", icon: Link, path: "/integrations" },
   { id: "settings", label: "Settings", icon: Settings, path: "/settings" },
 ];
 
+
+
 export const statsCards = [
   {
-    id: "active-projects",
-    title: "Active Projects",
-    value: "08",
-    subtitle: "2 due this week",
-    color: "blue",
-    iconType: "folder",
-  },
+  title: "Tasks Due",
+  value: "08",
+  subtitle: "2 due this week",
+  iconType: "folder",
+  variant: "due",
+}
+,
   {
-    id: "unread-messages",
-    title: "Unread Messages",
-    value: "12",
-    subtitle: "4 chats pending",
-    color: "green",
-    iconType: "message",
-  },
+  title: "Unread Messages",
+  value: "12",
+  subtitle: "4 chats pending",
+  iconType: "message",
+  variant: "chat",
+}
+,
   {
-    id: "tasks-due",
-    title: "Tasks Due Today",
-    value: "12",
-    subtitle: "2 High Priority",
-    color: "orange",
-    iconType: "task",
-  },
-  {
-    id: "pending-requests",
-    title: "Pending Requests",
-    value: "06",
-    subtitle: "Requires approval",
-    color: "coral",
-    iconType: "clock",
-  },
+  title: "Tasks Due Today",
+  value: "12",
+  subtitle: "3 High Priority",
+  iconType: "task",
+  variant: "priority",
+}
+,
+ {
+  title: "Pending Requests",
+  value: "06",
+  subtitle: "Requires approval",
+  iconType: "clock",
+  variant: "approval",
+},
 ];
 
 export const projectStatusData = [

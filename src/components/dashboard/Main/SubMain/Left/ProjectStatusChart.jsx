@@ -23,7 +23,7 @@ const ProjectStatusChart = () => {
   }, []);
 
   return (
-    <Card className="w-[525px] h-[361px] rounded-[10px] bg-white dark:bg-[#0F172A] shadow-[0px_4px_4px_5px_rgba(0,0,0,0.25)]">
+    <Card className="w-[530px] h-[361px] rounded-[10px] bg-white dark:bg-[#0F172A] shadow-[0px_4px_4px_5px_rgba(0,0,0,0.25)]">
       <CardHeader className="pt-[38px] pl-[23px]">
         <CardTitle className="text-[16px] font-semibold text-[#020617] dark:text-white">
           Project Status
@@ -38,7 +38,7 @@ const ProjectStatusChart = () => {
                 dataKey="value"
                 barSize={36}
                 radius={[6, 6, 0, 0]}
-                background={{ fill: isDark ? "#1E293B" : "#F1F5F9" }} // ✅ Perfect for light & dark mode
+                background={{ fill: isDark ? "#1E293B" : "#F1F5F9" }}
                 isAnimationActive={false}
               >
                 {projectStatusData.map((entry, i) => (
@@ -53,7 +53,7 @@ const ProjectStatusChart = () => {
           {projectStatusData.map((item) => (
             <div key={item.name} className="text-center">
               <p className="text-xs text-[#94A3B8]">{item.name}</p>
-              <p className="text-lg font-semibold text-white">{item.value}</p>
+              <p className="text-sm font-[15px] text-white">{item.value}</p>
             </div>
           ))}
         </div>

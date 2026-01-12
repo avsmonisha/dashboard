@@ -3,77 +3,76 @@ import { cn } from "@/lib/utils";
 import {
   Folder,
   MessageSquare,
-  CheckSquare,
-  Clock,
+  ClipboardList,
+  Clock
 } from "lucide-react";
 
+
 const iconMap = {
-  folder: Folder,
-  message: MessageSquare,
-  task: CheckSquare,
-  clock: Clock,
+  folder: Folder,          // Projects / Due
+  message: MessageSquare,  // Chats
+  task: ClipboardList,     // ✅ High Priority (3rd card)
+  clock: Clock,            // Approval
 };
 
+
 const colorMap = {
-  blue: {
-    iconBg: "bg-blue-500/10",
-    iconColor: "text-blue-500",
-    subtitle: "text-blue-500",
+  due: {
+    iconBg: "bg-[#776FEB]/10",
+    iconColor: "text-[#776FEB]",
+    subtitle: "text-[#776FEB]",
   },
-  green: {
-    iconBg: "bg-green-500/10",
-    iconColor: "text-green-500",
-    subtitle: "text-green-500",
+  chat: {
+    iconBg: "bg-[#059669]/10",
+    iconColor: "text-[#059669]",
+    subtitle: "text-[#059669]",
   },
-  orange: {
-    iconBg: "bg-orange-500/10",
-    iconColor: "text-orange-500",
-    subtitle: "text-orange-500",
+  priority: {
+    iconBg: "bg-[#EA5B14]/10",
+    iconColor: "text-[#EA5B14]",
+    subtitle: "text-[#EA5B14]",
   },
-  coral: {
-    iconBg: "bg-rose-500/10",
-    iconColor: "text-rose-500",
-    subtitle: "text-rose-500",
+  approval: {
+    iconBg: "bg-[#A133ED]/10",
+    iconColor: "text-[#A133ED]",
+    subtitle: "text-[#A133ED]",
   },
 };
 
 const StatsCard = ({ data }) => {
   const Icon = iconMap[data.iconType];
-  const colors = colorMap[data.color];
+  const colors = colorMap[data.variant];
 
   return (
     <Card
       className={cn(
-        // ✅ SIZE (matches Figma grid)
+        // SIZE
         "w-[250px] h-[187px] rounded-[9px]",
 
-        // ✅ COLORS
+        // BACKGROUND
         "bg-white dark:bg-[#0F172A]",
+
+        // BORDER
         "border border-black/5 dark:border-white/10",
 
-        // ✅ SHADOW (lighter in light mode)
-        "shadow-[0px_4px_12px_rgba(15,23,42,0.08)]",
-
-        // ✅ HOVER
-        "transition-all duration-200 ease-out",
-        "hover:-translate-y-[2px]",
-        "hover:shadow-[0px_10px_24px_rgba(15,23,42,0.18)]"
+        // SHADOW (Figma light mode)
+        "shadow-[0px_4px_4px_4px_rgba(0,0,0,0.25)]"
       )}
     >
       <CardContent className="h-full px-[20px] py-[22px] flex justify-between">
         {/* LEFT CONTENT */}
         <div className="flex flex-col">
-          <p className="font-poppins text-[12px] font-medium text-[#94A3B8]">
+          <p className="font-poppins text-[12px] mt-3 font-medium text-[#94A3B8]">
             {data.title}
           </p>
 
-          <p className="mt-[32px] font-poppins font-semibold text-[24px] text-[#020617] dark:text-[#F1F5F9]">
+          <p className="mt-[15px] font-poppins font-semibold text-[24px] text-[#020617] dark:text-[#F1F5F9]">
             {data.value}
           </p>
 
           <p
             className={cn(
-              "mt-[22px] font-poppins font-semibold text-[12px]",
+              "mt-[29px] font-poppins font-semibold text-[13px]",
               colors.subtitle
             )}
           >
@@ -86,8 +85,6 @@ const StatsCard = ({ data }) => {
           className={cn(
             "h-[48px] w-[48px] rounded-[12px]",
             "flex items-center justify-center",
-            "transition-transform duration-200",
-            "group-hover:scale-105",
             colors.iconBg
           )}
         >

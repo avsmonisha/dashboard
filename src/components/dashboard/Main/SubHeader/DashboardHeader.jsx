@@ -8,8 +8,8 @@ const DashboardHeader = () => {
         mb-8
 
         /* 🔥 FIGMA SPACING FIX */
-        mt-[32px]        /* move dashboard DOWN */
-        ml-[32px]        /* move away from sidebar */
+        mt-[20px]        /* move dashboard DOWN */
+        ml-[30px]        /* move away from sidebar */
         mr-[32px]
       "
     >
@@ -32,7 +32,7 @@ const DashboardHeader = () => {
           className="
             mt-[18px]
             font-poppins
-            text-[15px]
+            text-[17px]
             font-semibold
             leading-[100%]
             text-[#94A3B8]
@@ -47,9 +47,8 @@ const DashboardHeader = () => {
         className="
           w-[238px] h-[42px]
           flex items-center gap-2
-          px-[14px]
+          px-[14px] -mr-2 mt-5
           rounded-[7px]
-
           bg-white
           dark:bg-[#1E293B]
 
@@ -60,6 +59,7 @@ const DashboardHeader = () => {
         <span
           className="
             font-poppins
+           
             text-[11px]
             font-semibold
             leading-[100%]

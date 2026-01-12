@@ -45,7 +45,7 @@ const Header = () => {
           <span
             className="
               absolute
-              -top-1
+              -top-2
               -right-1
               w-2.5 h-2.5
               bg-red-500
